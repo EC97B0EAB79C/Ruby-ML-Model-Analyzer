@@ -27,5 +27,5 @@ class AppConfig
   end
 
   # Model repository
-  def self.model_repository = load_config["model_repository"]
+  def self.model_repository_path = load_config["model_repository"]
 end
