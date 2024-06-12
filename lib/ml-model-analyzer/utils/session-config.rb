@@ -11,4 +11,10 @@ class SessionConfig
   def self.model_repository_path=(data)
     @model_repository_path = data
   end
+
+  # Support Matrix
+  def self.support_matrix_path = @support_matrix_path || AppConfig.support_matrix_path
+  def self.support_matrix_path=(data)
+    @support_matrix_path = data
+  end
 end

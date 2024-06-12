@@ -8,6 +8,8 @@ class Model
     @path = path
   end
 
+  attr_reader :name
+
   # Loads config from file at model directory
   def config
     @config ||= YAML.load_file "#{@path}/config.yaml"
