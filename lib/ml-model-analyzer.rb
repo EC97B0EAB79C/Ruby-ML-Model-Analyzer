@@ -14,4 +14,9 @@ begin
   Log.log.info "Started model analyzer"
 
   model_repository = ModelRepository.new SessionConfig.model_repository_path
+  Log.log.debug "#{model_repository}"
+
+  model_repository.model_names.each do |name|
+    Log.log.debug "#{model_repository.model name}"
+  end
 end

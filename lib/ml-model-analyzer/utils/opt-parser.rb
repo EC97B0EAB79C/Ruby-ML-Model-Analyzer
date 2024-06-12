@@ -13,8 +13,8 @@ class OptParser
       opts.banner = "Usage: ml-model-analyzer.rb [options]"
 
       # Set model repository for a session
-      opts.on("--model-repository=PATH", "Specify the model repository path") do |path|
-        SessionConfig.model_repository = path
+      opts.on("--model_repository=PATH", "Specify the model repository path") do |path|
+        SessionConfig.model_repository_path = path
       end
 
       # Enable debug logs
