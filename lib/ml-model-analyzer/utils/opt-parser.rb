@@ -17,6 +17,10 @@ class OptParser
         SessionConfig.model_repository_path = path
       end
 
+      opts.on("--support_matrix=PATH", "Specify the support matrix path") do |path|
+        SessionConfig.support_matrix_path = path
+      end
+
       # Enable debug logs
       opts.on("-d", "--debug", "Show debug logs") do
         Log.log_level = Logger::DEBUG

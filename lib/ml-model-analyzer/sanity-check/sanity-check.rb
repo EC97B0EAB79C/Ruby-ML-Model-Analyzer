@@ -4,6 +4,6 @@ class SanityCheck
 
   def check(model, hw)
     Log.log.info "Sanity checking #{model.name}"
-    Log.log.debug SupportMatrix.matrix(hw, model.config["framework"])
+    Log.log.debug SupportMatrix.op_list(hw, model.config["framework"])
   end
 end
