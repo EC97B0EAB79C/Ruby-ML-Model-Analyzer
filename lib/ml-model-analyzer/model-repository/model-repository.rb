@@ -10,4 +10,8 @@ class ModelRepository
       Model.new model_name, File.join(@model_repository_path, model_name)
     }
   end
+
+  def models
+    @models
+  end
 end
