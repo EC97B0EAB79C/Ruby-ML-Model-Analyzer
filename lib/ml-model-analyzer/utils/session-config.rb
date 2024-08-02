@@ -5,10 +5,21 @@
 #
 class SessionConfig
   @model_repository_path = nil
+  @venv_path = nil
 
   # Model repository
-  def self.model_repository_path = @model_repository_path || AppConfig.model_repository_path
+  def self.model_repository_path
+    @model_repository_path || AppConfig.model_repository_path
+  end
   def self.model_repository_path=(data)
     @model_repository_path = data
+  end
+
+  # Venv
+  def self.venv_path
+    @venv_path || AppConfig.venv_path
+  end
+  def self.venv_path=(data)
+    @venv_path = data
   end
 end
