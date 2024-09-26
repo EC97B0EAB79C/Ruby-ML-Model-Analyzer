@@ -22,4 +22,12 @@ class SessionConfig
   def self.venv_path=(data)
     @venv_path = data
   end
+
+  # Workspace
+  def self.workspace_path
+    @workspace_path || AppConfig.workspace_path
+  end
+  def self.workspace_path=(data)
+    @workspace_path = data
+  end
 end

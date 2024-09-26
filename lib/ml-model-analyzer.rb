@@ -9,10 +9,14 @@ require_relative "./ml-model-analyzer/utils/dir-utils.rb"
 require_relative "./ml-model-analyzer/model-repository/model.rb"
 require_relative "./ml-model-analyzer/model-repository/model-repository.rb"
 
+# Load testing libraies
+require_relative "./ml-model-analyzer/testing/workspace.rb"
+
 begin
   options = OptParser.parse
   Log.log.info "Started model analyzer"
 
   model_repository = ModelRepository.new SessionConfig.model_repository_path
-  Log.log.debug model_repository.summary
+  workspace = Workspace.new SessionConfig.workspace_path, model_repository
+  puts model_repository.summary
 end

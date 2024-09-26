@@ -3,10 +3,13 @@
 # Model class containing model config and versions
 #
 class Model
-  def initialize(model_data)
+  attr_reader :name, :path, :framework
+
+  def initialize(model_data, model_repository_path)
     @model_data = model_data
     @name = model_data["name"]
-    @path = model_data["path"]
+    @file_name = model_data["file_name"]
+    @path = File.join model_repository_path, @file_name
     @framework = model_data["framework"]
     @source = model_data["source"]
   end
@@ -17,7 +20,7 @@ class Model
   end
 
   def detail
-    [@name, @framework, @source]
+    [@name, @framework, @file_name, [@source].join(", ")]
   end
 
   # def execute_model

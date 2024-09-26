@@ -35,4 +35,9 @@ class AppConfig
   def self.venv_path
     load_config["venv"]
   end
+
+  # Workspace
+  def self.workspace_path
+    load_config["workspace"]
+  end
 end

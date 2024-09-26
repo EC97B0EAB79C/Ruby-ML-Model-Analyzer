@@ -10,7 +10,7 @@ class ModelRepository
   def load
     DirUtils.file_entries(@model_data_path).map { |model_data_file|
       file_data = File.read File.join(@model_data_path, model_data_file)
-      Model.new JSON.parse file_data
+      Model.new JSON.parse(file_data), @model_repository_path
     }
   end
 
@@ -22,5 +22,8 @@ class ModelRepository
     models.map { |model|
       "| " + model.detail.join(" | ") + " |"
     }.sort
+  end
+
+  def result
   end
 end
