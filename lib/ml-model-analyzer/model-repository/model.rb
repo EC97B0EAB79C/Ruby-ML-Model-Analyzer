@@ -14,6 +14,10 @@ class Model
     @source = model_data["source"]
   end
 
+  def result=(data)
+    @result = data
+  end
+
   # String representation for debugging
   def to_s
     "Model: #{@name} (#{@framework})"
@@ -21,6 +25,10 @@ class Model
 
   def detail
     [@name, @framework, @file_name, [@source].join(", ")]
+  end
+
+  def result
+    [@name, @framework, @result]
   end
 
   # def execute_model
