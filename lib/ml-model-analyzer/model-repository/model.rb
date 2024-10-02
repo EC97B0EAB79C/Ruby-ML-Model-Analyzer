@@ -3,7 +3,7 @@
 # Model class containing model config and versions
 #
 class Model
-  attr_reader :name, :path, :framework
+  attr_reader :name, :path, :framework, :parameter
 
   def initialize(model_data, model_repository_path)
     @model_data = model_data
@@ -12,10 +12,15 @@ class Model
     @path = File.join model_repository_path, @file_name
     @framework = model_data["framework"]
     @source = model_data["source"]
+    @parameter = model_data["parameter"]
   end
 
   def result=(data)
     @result = data
+  end
+
+  def result
+    result
   end
 
   # String representation for debugging
@@ -27,8 +32,8 @@ class Model
     [@name, @framework, @file_name, [@source].join(", ")]
   end
 
-  def result
-    [@name, @framework, @result]
+  def show_result(process = nil)
+    [@name, @framework] + @result.values_at(*process)
   end
 
   # def execute_model

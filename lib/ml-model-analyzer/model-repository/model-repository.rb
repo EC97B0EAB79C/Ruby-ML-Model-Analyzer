@@ -27,9 +27,9 @@ class ModelRepository
     }.sort
   end
 
-  def result
+  def show_result(process = nil)
     models.map { |model|
-      "| " + model.result.join(" | ") + " |"
+      "| " + model.show_result(process).join(" | ") + " |"
     }.sort
   end
 end
