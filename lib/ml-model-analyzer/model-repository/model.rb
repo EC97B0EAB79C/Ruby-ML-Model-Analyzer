@@ -4,6 +4,7 @@
 #
 class Model
   attr_reader :name, :path, :framework, :parameter
+  attr_accessor :result
 
   def initialize(model_data, model_repository_path)
     @model_data = model_data
@@ -13,19 +14,16 @@ class Model
     @framework = model_data["framework"]
     @source = model_data["source"]
     @parameter = model_data["parameter"]
-  end
-
-  def result=(data)
-    @result = data
-  end
-
-  def result
-    result
+    @result = {}
   end
 
   # String representation for debugging
   def to_s
     "Model: #{@name} (#{@framework})"
+  end
+
+  def summary
+    [@name, @framework]
   end
 
   def detail
