@@ -3,7 +3,8 @@
 # Model class containing model config and versions
 #
 class Model
-  attr_reader :name, :path, :framework, :parameter
+  attr_reader :name, :path, :framework, :parameter, :source
+  attr_accessor :result
 
   def initialize(model_data, model_repository_path)
     @model_data = model_data
@@ -12,20 +13,20 @@ class Model
     @path = File.join model_repository_path, @file_name
     @framework = model_data["framework"]
     @source = model_data["source"]
+    if @source.instance_of? Array
+      @source = @source[0]
+    end
     @parameter = model_data["parameter"]
-  end
-
-  def result=(data)
-    @result = data
-  end
-
-  def result
-    result
+    @result = {}
   end
 
   # String representation for debugging
   def to_s
     "Model: #{@name} (#{@framework})"
+  end
+
+  def summary
+    [@name, @framework]
   end
 
   def detail
