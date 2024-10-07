@@ -3,7 +3,7 @@
 # Model class containing model config and versions
 #
 class Model
-  attr_reader :name, :path, :framework, :parameter
+  attr_reader :name, :path, :framework, :parameter, :source
   attr_accessor :result
 
   def initialize(model_data, model_repository_path)
@@ -13,6 +13,9 @@ class Model
     @path = File.join model_repository_path, @file_name
     @framework = model_data["framework"]
     @source = model_data["source"]
+    if @source.instance_of? Array
+      @source = @source[0]
+    end
     @parameter = model_data["parameter"]
     @result = {}
   end
